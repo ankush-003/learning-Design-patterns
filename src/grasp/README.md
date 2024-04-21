@@ -1,15 +1,16 @@
 # GRASP Patterns
-- [GRASP Patterns](#grasp-patterns)
-  - [Creator](##creator)
-  - [Information Expert](#information-expert)
-  - [Low Coupling](#low-coupling)
-  - [High Cohesion](#high-cohesion)
-  - [Controller](#controller)
-  - [Polymorphism](#polymorphism)
-  - [Pure Fabrication](#pure-fabrication)
-  - [Indirection](#indirection)
-  - [Protected Variations](#protected-variations)
-  - [Summary](#summary)
+- GRASP stands for General Responsibility Assignment Software Patterns.
+- [`GRASP Patterns`](#grasp-patterns)
+  - [`Creator`](#creator)
+  - [`Information Expert`](#information-expert)
+  - [`Low Coupling`](#low-coupling)
+  - [`High Cohesion`](#high-cohesion)
+  - [`Controller`](#controller)
+  - [`Polymorphism`](#polymorphism)
+  - [`Pure Fabrication`](#pure-fabrication)
+  - [`Indirection`](#indirection)
+  - [`Protected Variations`](#protected-variations)
+  - [`Summary`](#summary)
 
 ## Creator
 - Assign class B the responsibility to create an instance of class A if one of these is true:
@@ -31,6 +32,14 @@
   - Association: class contains a reference to another class.
   - Composition: class contains another class (differs from association in that the contained class has no meaning without the container class).
   - Inheritance: class is a subclass of another class, implements or extends another class.
+- Examples of dependencies:
+  - Method parameters
+  - Method return values
+  - Method local variables
+  - Static variables
+  - Instance variables
+  - Interface implementations
+  - Subclassing
 
 ## High Cohesion
 - Increase the cohesion of a class by assigning responsibilities that are closely related.
@@ -43,6 +52,10 @@
 - Assign a responsibility to a class that can be implemented by multiple classes.
 - Dynamically handle different types of similar objects.
 - Example: A `Shape` class can have a `draw` method that is implemented by `Circle`, `Rectangle`, and `Triangle` classes.
+- Types:
+  - Ad-hoc polymorphism: method overloading, operator overloading.
+  - Parametric polymorphism: generics.
+  - Subtype polymorphism: inheritance, interfaces.
 
 ## Pure Fabrication
 - Assign a responsibility to a class that does not represent a concept in the problem domain.
@@ -58,5 +71,7 @@
 
 ## References
 
+- [`GRASP Examples`](https://www.kamilgrzybek.com/blog/posts/grasp-explained)
 - [GRASP Patterns in OOAD](https://www.geeksforgeeks.org/grasp-design-principles-in-ooad/)
 - [Derek Banas - GRASP Design Patterns](https://youtu.be/9Y2mZger8kE?si=GH9ufrVejfNlBp4d)
+- [Polymorphisms](https://www.geeksforgeeks.org/ad-hoc-inclusion-parametric-coercion-polymorphisms/)
