@@ -31,3 +31,8 @@ The Dependency Inversion Principle states that high-level modules should not dep
 
 - High-level modules should not depend on low-level modules.
 - Combonation of the Single Responsibility Principle and the Open/Closed Principle.
+
+## References
+
+- [Solid by Geekific](https://www.youtube.com/watch?v=HoA6aZPR5K0)
+- [Solid by Baeldung](https://www.baeldung.com/solid-principles)
