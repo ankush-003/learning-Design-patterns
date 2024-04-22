@@ -17,3 +17,17 @@ The Single Responsibility Principle states that a class should have only one rea
 The Open/Closed Principle states that a class should be open for extension but closed for modification.
 - A class should be open for extension but closed for modification.
 - A class should be easily extendable without modifying the class itself.
+
+## Liskov Substitution Principle (LSP)
+The Liskov Substitution Principle states that objects of a superclass should be replaceable with objects of its subclasses without affecting the functionality of the program.
+- This can be achieved by using composition and interfaces.
+
+## Interface Segregation Principle (ISP)
+The Interface Segregation Principle states that a client should not be forced to implement an interface that it does not use, many small, client-specific interfaces are better than one general-purpose interface.
+
+## Dependency Inversion Principle (DIP)
+
+The Dependency Inversion Principle states that high-level modules should not depend on low-level modules, both should depend on abstractions. Abstractions should not depend on details, details should depend on abstractions.
+
+- High-level modules should not depend on low-level modules.
+- Combonation of the Single Responsibility Principle and the Open/Closed Principle.
