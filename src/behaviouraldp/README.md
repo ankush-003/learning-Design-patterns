@@ -7,8 +7,10 @@ Behavioural design patterns are design patterns that deal with the assignment of
 - **`Iterator`**: Sequentially access the elements of a collection.
 - **`Interpreter`**: A way to include language elements in a program.
 
-## Chain of Responsibility
+## [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
 ![image](https://github.com/ankush-003/learning-Design-patterns/assets/94037471/693dc613-c482-4077-9dc6-2eb3b2f32f69)
+
+The Chain of Responsibility pattern is used to achieve loose coupling in software design where a request from the client is passed to a chain of objects to process them. Each object in the chain will decide either to process the request or to pass it to the next object in the chain. The chain of objects will have a common interface to process the request and a reference to the next object in the chain to pass the request
 
 
 ## Command
