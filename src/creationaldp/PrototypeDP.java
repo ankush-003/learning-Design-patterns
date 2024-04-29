@@ -1,65 +1,96 @@
 package creationaldp;
 
+import java.util.HashMap;
+import java.util.Map;
+
+
 public class PrototypeDP {
     public static void main(String[] args) {
-        Car car1 = new Car("Toyota", 1000000, 4);
-        Car car2 = car1.clone();
-        System.out.println("Car 1: " + car1.getModel() + " " + car1.getPrice() + " " + car1.getDoors());
-        System.out.println("Car 2: " + car2.getModel() + " " + car2.getPrice() + " " + car2.getDoors());
+        PRegistry registry = new PRegistry();
+        Map<String, Prototype> prototypes = registry.getPrototypes();
+
+        Jaguar jaguar = (Jaguar) prototypes.get("Jaguar").Clone();
+        System.out.println(jaguar);
+
+        Ford ford = (Ford) prototypes.get("Ford").Clone();
+        System.out.println(ford);
     }
+
 }
 
 interface Prototype {
-    Vehicle clone();
+    Prototype Clone();
 }
 
-class Vehicle implements Prototype {
+class PRegistry {
+    private Map<String, Prototype> prototypes = new HashMap<>();
+
+    public PRegistry() {
+        Jaguar jaguar = new Jaguar("F-Type", "Red");
+        Ford ford = new Ford("Mustang", "Blue");
+
+        prototypes.put("Jaguar", jaguar);
+        prototypes.put("Ford", ford);
+    }
+
+    public Map<String, Prototype> getPrototypes() {
+        return prototypes;
+    }
+}
+
+class CarP implements Prototype {
+    private String brand;
     private String model;
-    private int price;
+    private String color;
 
-    public Vehicle(String model, int price) {
+    public CarP(String brand, String model, String color) {
+        this.brand = brand;
         this.model = model;
-        this.price = price;
+        this.color = color;
     }
 
-    public Vehicle(Vehicle v) {
-        this.model = v.model;
-        this.price = v.price;
+    public CarP(CarP car) {
+        this.brand = car.brand;
+        this.model = car.model;
+        this.color = car.color;
     }
 
-    public Vehicle clone() {
-        return new Vehicle(this);
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public int getPrice() {
-        return price;
+    public CarP Clone() {
+        return new CarP(this);
     }
 }
 
-class Car extends Vehicle {
-    private int doors;
+class Jaguar extends CarP {
 
-    public Car(String model, int price, int doors) {
-        super(model, price);
-        this.doors = doors;
+    private String radio;
+
+    public Jaguar(Jaguar car) {
+        super(car);
+        this.radio = car.radio;
+    }
+    public Jaguar(String model, String color) {
+        super("Jaguar", model, color);
     }
 
-    public Car(Car c) {
-        super(c);
-        this.doors = c.doors;
-    }
-
-    public Car clone() {
-        return new Car(this);
-    }
-
-    public int getDoors() {
-        return doors;
+    public Jaguar Clone() {
+        return new Jaguar(this);
     }
 }
 
+class Ford extends CarP {
 
+    private String gps;
+
+    public Ford(Ford car) {
+        super(car);
+        this.gps = car.gps;
+    }
+
+    public Ford(String model, String color) {
+        super("Ford", model, color);
+    }
+
+    public Ford Clone() {
+        return new Ford(this);
+    }
+}

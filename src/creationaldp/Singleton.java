@@ -2,6 +2,8 @@ package creationaldp;
 
 public class Singleton {
     private static Singleton instance = null; // sometime may be accessed by multiple threads when not initialized completely
+    // eager instantiation
+    // private static Singleton instance = new Singleton(); // this will create the instance when the class is loaded
     private static volatile Singleton instanceThreadSafe = null; // volatile keyword ensures that multiple threads handle the instance variable correctly when it is being initialized to the Singleton instance
 
     private String data = "Hello";
@@ -27,6 +29,18 @@ public class Singleton {
         return instance;
     }
 
+    // double check locking
+    public static Singleton getInstanceThreadSafeDoubleCheckVolatile(String data) {
+        if (instanceThreadSafe == null) { // limit the synchronized block to only the first time the instance is created
+            synchronized (Singleton.class) {
+                if (instanceThreadSafe == null) {
+                    instanceThreadSafe = new Singleton(data); // use instanceThreadSafe instead of instance
+                }
+            }
+        }
+        return instanceThreadSafe;
+    }
+
     public static Singleton getInstanceThreadSafeDoubleCheck(String data) {
         Singleton result = instance; // read the instance into a local variable to save memory access
         if (result == null) { // limit the synchronized block to only the first time the instance is created
@@ -39,18 +53,6 @@ public class Singleton {
         }
 //        return instance;
         return result;
-    }
-
-
-    public static Singleton getInstanceThreadSafeDoubleCheckVolatile(String data) {
-        if (instanceThreadSafe == null) { // limit the synchronized block to only the first time the instance is created
-            synchronized (Singleton.class) {
-                if (instanceThreadSafe == null) {
-                    instanceThreadSafe = new Singleton(data); // use instanceThreadSafe instead of instance
-                }
-            }
-        }
-        return instanceThreadSafe;
     }
 
 

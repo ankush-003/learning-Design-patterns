@@ -2,7 +2,7 @@ package creationaldp;
 
 public class Builder {
     public static void main(String[] args) {
-        Car car = new CarBuilder()
+        CarBase car = new CarBuilder()
                 .setId(1)
                 .setBrand("Toyota")
                 .setModel("Corolla")
@@ -14,18 +14,18 @@ public class Builder {
         Director director = new Director();
         CarBuilder builder = new CarBuilder();
         director.buildBugatti(builder);
-        Car bugatti = builder.build();
+        CarBase bugatti = builder.build();
     }
 }
 
-class Car {
+class CarBase {
     private final int id;
     private final String brand;
     private final String model;
     private final String color;
 
     // package private constructor as builder is in the same package
-    Car(int id, String brand, String model, String color) {
+    CarBase(int id, String brand, String model, String color) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -69,8 +69,8 @@ class CarBuilder {
         return this;
     }
 
-    public Car build() {
-        return new Car(id, brand, model, color);
+    public CarBase build() {
+        return new CarBase(id, brand, model, color);
     }
 }
 
