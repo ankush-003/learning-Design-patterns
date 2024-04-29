@@ -24,6 +24,9 @@ The Command pattern is used to encapsulate a request as an object, thereby allow
 ## Iterator
 ![image](https://github.com/ankush-003/learning-Design-patterns/assets/94037471/7935d115-2023-467a-9d90-ca78af8e6017)
 
+The Iterator pattern is used to provide a standard way to traverse through a group of Objects. It provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation. The Iterator pattern is used when you want to access the elements of a collection without exposing its underlying representation.
+
+
 
 ## Interpreter
 ![image](https://github.com/ankush-003/learning-Design-patterns/assets/94037471/4333a659-eed5-4548-a9a7-623372b117b1)
