@@ -1,4 +1,11 @@
 # Structural Design Patterns
+Structural design patterns are concerned with how classes and objects can be composed, to form larger structures. The structural design patterns simplifies the structure by identifying the relationships.
+
+## Types of Structural Design Patterns
+- **`Adapter`**: Allows objects with incompatible interfaces to collaborate.
+- **`Facade`**: Provides a simplified interface to a complex system.
+- **`Proxy`**: Provides a placeholder for another object to control access, reduce cost, and reduce complexity.
+- **`Flyweight`**: Minimizes memory usage or computational expenses by sharing as much as possible with related objects.
 
 ## [Adapter Pattern](https://refactoring.guru/design-patterns/adapter)
 ![image](https://github.com/ankush-003/learning-Design-patterns/assets/94037471/eaa0d24d-b387-4821-9e37-0eb0dd70cfae)
